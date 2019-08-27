@@ -2,7 +2,6 @@
   "name": "rocket_js",
   "version": "1.0.0",
   "description": "An assignment where tests are written against a Rocket class.",
-  "main": "rocket.js",
   "scripts": {
     "test": "jest"
   },
@@ -10,11 +9,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/bitmakerlabs/rocket_js.git"
   },
-  "keywords": [
-    "testing",
-    "js",
-    "rocket"
-  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -23,5 +17,9 @@
   "homepage": "https://github.com/bitmakerlabs/rocket_js#readme",
   "devDependencies": {
     "jest": "^23.6.0"
+  },
+  "main": "rocket.js",
+  "dependencies": {
+    "jest-cli": "^24.9.0"
   }
 }
