@@ -1,3 +1,9 @@
+const prefixes = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"];
+
+const suffixes = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];
+
+const colour_list = ["red", "yellow", "blue", "green", "purple", "orange"];
+
 class Rocket {
   constructor(options = {}) {
     this.name = options.name || this.randomName();
@@ -57,8 +63,6 @@ class Rocket {
   // helper methods - don't need to test these!
 
   randomName() {
-    const prefixes = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"],
-          suffixes = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];
     const randomPrefix = this.getRandom(prefixes),
           randomSuffix = this.getRandom(suffixes);
     const capitalizedPrefix = randomPrefix.charAt(0).toUpperCase() + randomPrefix.slice(1);
@@ -67,7 +71,6 @@ class Rocket {
   }
 
   randomColour() {
-    const colour_list = ["red", "yellow", "blue", "green", "purple", "orange"];
     return this.getRandom(colour_list);
   }
 
@@ -76,4 +79,4 @@ class Rocket {
   }
 }
 
-module.exports = Rocket;
+module.exports = { Rocket, prefixes, suffixes, colour_list }

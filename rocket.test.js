@@ -1,8 +1,5 @@
 
-const Rocket = require('./rocket');
-
-const prefixes = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"],
-suffixes = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];
+const {Rocket, prefixes, suffixes, colour_list} = require('./rocket');
 
 describe('Rocket', () => {
 
@@ -204,6 +201,7 @@ describe('Rocket', () => {
   // });
 
 
+
   describe('randomName', () => {
     test('returns a random ship name generated from list by default', () => {
       // arrange
@@ -221,10 +219,53 @@ describe('Rocket', () => {
       expect(suffixes.includes(suffix)).toEqual(false);  // III
       expect(suffixes.includes(suffix.toLowerCase())).toEqual(true);  // iii
     });
-
-
-   
   });
 
 
+
+  describe('randomColour', () => {
+    test('returns a random colour generated from list by default', () => {
+      // arrange
+      let rocket = new Rocket();
+
+      // act
+      colour = rocket.colour;  // blue
+
+      // assert
+      expect(colour_list.includes(colour)).toEqual(true);  // blue
+    });
+  });
+
+
+
+  describe('getRandom', () => {
+    test('returns a random item from a collection', () => {
+      // arrange
+      let rocket = new Rocket();
+
+      // act
+      randomPrefix = rocket.getRandom(prefixes);  // libra
+      randomSuffix = rocket.getRandom(suffixes);  // iii
+      randomColour = rocket.getRandom(colour_list);  // blue
+
+      // assert
+      expect(prefixes.includes(randomPrefix)).toEqual(true);  // libra
+      expect(suffixes.includes(randomSuffix)).toEqual(true);  // iii
+      expect(colour_list.includes(randomColour)).toEqual(true);  // blue
+    });
+
+
+    test('returns nothing from an invalid collection', () => {
+      // arrange
+      let rocket = new Rocket();
+
+      // act
+      emptyOne = rocket.getRandom([]);
+      emptyTwo = rocket.getRandom(0);
+
+      // assert
+      expect(prefixes.includes(emptyOne)).toEqual(false);
+      expect(prefixes.includes(emptyTwo)).toEqual(false);
+    });
+  });
 });
